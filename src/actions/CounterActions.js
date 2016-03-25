@@ -1,4 +1,7 @@
+import axios from 'axios'
+
 import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../constants/ActionTypes';
+
 
 export function increment() {
   return {
@@ -30,4 +33,18 @@ export function incrementAsync() {
       dispatch(increment());
     }, 1000);
   };
+}
+
+function fetchSecretSauce() {
+  const request = axios.get('http://jsonplaceholder.typicode.com/users')
+  return request
+  // return axios.get('http://mbit.fi')
+}
+
+export function axiosTest() {
+  return function (dispatch) {
+    return fetchSecretSauce().then(
+      () => dispatch(increment())
+    )
+  }
 }

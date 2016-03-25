@@ -3,8 +3,9 @@ import { Router, Route, IndexRoute } from 'react-router';
 import { browserHistory } from 'react-router';
 
 import App from '../containers/App';
-import { NotFoundView, Counter, FooView, BarView } from '../components';
+import { NotFoundView, FooView, BarView } from '../components';
 import About from '../components/About'
+import Counter from '../containers/Counter'
 
 export default function () {
   return (

@@ -24,6 +24,18 @@ cd lib/semantic
 gulp build
 ```
 
+## config.js
+
+// Hold application secrets and config
+
+```js
+module.exports = {
+  parseID: '',
+  parseJS: '',
+  secret: ''
+};
+```
+
 ## Tech
 
 - React
@@ -34,4 +46,4 @@ gulp build
 
 ### 25.3.2016
 
-Initial codebase. 
+Initial codebase.

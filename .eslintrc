@@ -5,6 +5,7 @@
     "react/jsx-no-bind": 0,
     "semi": 0,
     "react/prop-types": 0,
+    "arrow-body-style": 0,
   },
   "globals": {
     "$": false
