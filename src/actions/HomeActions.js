@@ -26,11 +26,6 @@ function postsReceiveError(json) {
   }
 }
 
-// this.props.actions.posts_get()
-// this.props.actions.posts_add(content)
-// this.props.actions.posts_update(post_id, )
-// this.props.actions.posts_remove(post_id)
-
 export function posts_get() {
   return function (dispatch) {
     dispatch(postsRequestData())
@@ -48,38 +43,26 @@ export function posts_get() {
   }
 }
 
+export function posts_add(body, username = 'Nimetön', importance = 0) {
+  return (dispatch) => {
+    const PostObject = Parse.Object.extend('PostObject')
+    const newPost = new PostObject
+    newPost.set('body', body)
+    // newPost.set('user', 'Ou0rtpCRVV')
+    newPost.set('importance', 0)
+    newPost.set('username', username)
+    return newPost.save(null, {
+      success: (post) => {
+        // We can dispatch something here if needed
+      },
+      error: (post, error) => {
+        // Or, we can dispatch something concerning about the error here
+      }
+    })
+  }
+}
 
-// function parse_fetchAllPosts() {
-//   const PostObject = Parse.Object.extend('PostObject')
-//   const query = new Parse.Query(PostObject)
-//   return query.find({
-//     success: (results) => {
-//       // console.log('success')
-//     },
-//     error: (error) => {
-//       // console.log(error)
-//     }
-//   })
-// }
-//
-// export function fetchem() {
-//   return function (dispatch) {
-//     return parse_fetchAllPosts().then(
-//       (posts) => dispatch(aboutFetchPosts(posts))
-//     )
-//   }
-// }
-//
-// // function fetchSecretSauce() {
-// //   const request = axios.get('http://jsonplaceholder.typicode.com/users')
-// //   return request
-// //   // return axios.get('http://mbit.fi')
-// // }
-// //
-// // export function axiosTest() {
-// //   return function (dispatch) {
-// //     return fetchSecretSauce().then(
-// //       () => dispatch(increment())
-// //     )
-// //   }
-// // }
+// this.props.actions.posts_get()
+// this.props.actions.posts_add(body)
+// this.props.actions.posts_update(post_id, )
+// this.props.actions.posts_remove(post_id)
