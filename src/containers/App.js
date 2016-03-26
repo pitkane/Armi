@@ -21,5 +21,5 @@ export default class App extends Component {
     );
   }
 }
-
+//  reloadData={this.props.actions}
 export default App

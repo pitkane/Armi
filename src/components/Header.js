@@ -10,7 +10,7 @@ export default function BarView() {
         </div>
         <Link className="item" to="/">Link 1</Link>
         <Link className="item" to="/resources">Link 2</Link>
-        <Link className="item" to="/about">About</Link>
+        <Link className="item" to="/home">Home View</Link>
       </div>
     </div>
   )

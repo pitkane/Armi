@@ -4,7 +4,7 @@ import { browserHistory } from 'react-router';
 
 import App from '../containers/App';
 import { NotFoundView, FooView, BarView } from '../components';
-import About from '../components/About'
+import Home from '../containers/Home'
 import Counter from '../containers/Counter'
 
 export default function () {
@@ -18,7 +18,7 @@ export default function () {
         <IndexRoute component={Counter}/>
         <Route path="foo" component={FooView}/>
         <Route path="bar" component={BarView}/>
-        <Route path="about" component={About}/>
+        <Route path="home" component={Home}/>
         <Route path="*" component={NotFoundView} />
       </Route>
     </Router>
