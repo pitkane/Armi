@@ -1,5 +1,6 @@
 import Axios from 'axios'
 import Parse from 'parse'
+import _ from 'lodash'
 
 import {
   POSTS_REQUEST_DATA,
@@ -48,8 +49,7 @@ export function posts_add(body, username = 'Nimetön', importance = 0) {
     const PostObject = Parse.Object.extend('PostObject')
     const newPost = new PostObject
     newPost.set('body', body)
-    // newPost.set('user', 'Ou0rtpCRVV')
-    newPost.set('importance', 0)
+    newPost.set('importance', _.toInteger(importance))
     newPost.set('username', username)
     return newPost.save(null, {
       success: (post) => {
@@ -62,7 +62,42 @@ export function posts_add(body, username = 'Nimetön', importance = 0) {
   }
 }
 
-// this.props.actions.posts_get()
-// this.props.actions.posts_add(body)
+// NOTES:
+// Parse.Promise then( resolvedCallback, rejectedCallback )
+// Adds callbacks to be called when this promise is fulfilled.
+// Returns a new Promise that will be fulfilled when the callback is complete.
+// It allows chaining. If the callback itself returns a Promise,
+// then the one returned by "then" will not be fulfilled until
+//  that one returned by the callback is fulfilled.
+
+export function posts_remove(post_id) {
+  // console.log(post_id)
+  return (dispatch) => {
+    const postObject = Parse.Object.extend('PostObject');
+    const query = new Parse.Query(postObject);
+    // debugger
+    return query.get(post_id)
+      .then((post) => {
+        return post.destroy({
+          success: function (removed_post) {
+            // console.log('Post tuhottu')
+          },
+          error: function (removed_post, error) {
+          }
+        })
+      })
+    // debugger
+    // deletable.destroy({
+    //   success: function (myObject) {
+    //     // The object was deleted from the Parse Cloud.
+    //   },
+    //   error: function (myObject, error) {
+    //     // The delete failed.
+    //     // error is a Parse.Error with an error code and message.
+    //   }
+    // })
+    // return PostObject.remove
+  }
+}
 // this.props.actions.posts_update(post_id, )
 // this.props.actions.posts_remove(post_id)
