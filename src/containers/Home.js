@@ -39,18 +39,17 @@ class Home extends Component {
         console.log('(Home: addPost) Success')
         self.clearForm()
         self.reloadData()
-
       }, (error) => {
         console.log('Something went wrong, dont clear', error)
       })
-
   }
+
   deletePost(post_id) {
-    const props = this.props
-    this.props.actions.posts_remove(post_id)
+    const actions = this.props
+    actions.posts_remove(post_id)
       .then((success) => {
         console.log('(Home: deletePost) Success')
-        props.actions.posts_get()
+        actions.posts_get()
       }, (error) => {
         console.log('Something went wrong', error)
       })
