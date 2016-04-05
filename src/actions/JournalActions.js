@@ -3,59 +3,63 @@ import Parse from 'parse'
 import _ from 'lodash'
 
 import {
-  POSTS_REQUEST_DATA,
-  POSTS_RECEIVE_DATA,
-  POSTS_RECEIVE_ERROR } from '../constants/ActionTypes';
+  JOURNAL_REQUEST_DATA,
+  JOURNAL_RECEIVE_DATA,
+  JOURNAL_RECEIVE_ERROR } from '../constants/ActionTypes';
 
-function postsRequestData() {
+function journalRequestData() {
   return {
-    type: POSTS_REQUEST_DATA
+    type: JOURNAL_REQUEST_DATA
   }
 }
 
-function postsDataReceived(json) {
+function journalDataReceived(json) {
   return {
-    type: POSTS_RECEIVE_DATA,
+    type: JOURNAL_RECEIVE_DATA,
     data: json
   }
 }
 
-function postsReceiveError(json) {
+function journalReceiveError(json) {
   return {
-    type: POSTS_RECEIVE_ERROR,
+    type: JOURNAL_RECEIVE_ERROR,
     data: json
   }
 }
 
-export function posts_get() {
+export function journal_read() {
   return function (dispatch) {
-    dispatch(postsRequestData())
+    dispatch(journalRequestData())
 
-    const PostObject = Parse.Object.extend('PostObject')
-    const query = new Parse.Query(PostObject)
+    const JournalObject = Parse.Object.extend('Journal')
+    const query = new Parse.Query(JournalObject)
 
     return query.find({
       success: (results) => {
         // fix data result type
-        dispatch(postsDataReceived(results));
+        dispatch(journalDataReceived(results));
       },
-      error: (error) => { }
+      error: (error) => {
+        console.log(error)
+      }
     })
   }
 }
 
-export function posts_add(body, username = 'Nimetön', importance = 0) {
+export function journal_create(body, username = 'Nimetön', importance = 0) {
   return (dispatch) => {
-    const PostObject = Parse.Object.extend('PostObject')
-    const newPost = new PostObject
+    const JournalObject = Parse.Object.extend('Journal')
+    const newPost = new JournalObject
     newPost.set('body', body)
-    newPost.set('importance', _.toInteger(importance))
+    newPost.set('importance', _.toNumber(importance))
     newPost.set('username', username)
     return newPost.save(null, {
       success: (post) => {
         // We can dispatch something here if needed
+        dispatch(journal_read())
       },
       error: (post, error) => {
+        console.log(post, error)
         // Or, we can dispatch something concerning about the error here
       }
     })
@@ -70,19 +74,21 @@ export function posts_add(body, username = 'Nimetön', importance = 0) {
 // then the one returned by "then" will not be fulfilled until
 //  that one returned by the callback is fulfilled.
 
-export function posts_remove(post_id) {
+export function journal_delete(post_id) {
   // console.log(post_id)
   return (dispatch) => {
-    const postObject = Parse.Object.extend('PostObject');
-    const query = new Parse.Query(postObject);
+    const JournalObject = Parse.Object.extend('Journal');
+    const query = new Parse.Query(JournalObject);
     // debugger
     return query.get(post_id)
       .then((post) => {
         return post.destroy({
           success: function (removed_post) {
             // console.log('Post tuhottu')
+            dispatch(journal_read())
           },
           error: function (removed_post, error) {
+            console.log(removed_post, error)
           }
         })
       })

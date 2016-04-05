@@ -1,22 +1,21 @@
 import {
-  POSTS_REQUEST_DATA,
-  POSTS_RECEIVE_DATA,
-  POSTS_RECEIVE_ERROR } from '../constants/ActionTypes';
+  JOURNAL_REQUEST_DATA,
+  JOURNAL_RECEIVE_DATA,
+  JOURNAL_RECEIVE_ERROR } from '../constants/ActionTypes';
 
 const defaultState = {
+  data: [],
   isLoading: false,
-  posts_data: [],
-  bs_data: [],
   error: false
 }
 
 export default function home(state = defaultState, action) {
   switch (action.type) {
-    case POSTS_REQUEST_DATA:
+    case JOURNAL_REQUEST_DATA:
       return Object.assign({}, state, { isLoading: true, error: false });
-    case POSTS_RECEIVE_DATA:
-      return Object.assign({}, state, { isLoading: false, posts_data: action.data, error: false })
-    case POSTS_RECEIVE_ERROR:
+    case JOURNAL_RECEIVE_DATA:
+      return Object.assign({}, state, { isLoading: false, data: action.data, error: false })
+    case JOURNAL_RECEIVE_ERROR:
       return Object.assign({}, state, { isLoading: false, error: true });
     default:
       return state

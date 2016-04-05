@@ -1,13 +1,15 @@
 import { combineReducers } from 'redux';
 
 // Reducers
-import home from './home'
 import bloodsugar from './bloodsugar'
+import notes from './notes'
+import journal from './journal'
 import { routeReducer } from 'react-router-redux';
 
 const rootReducer = combineReducers({
-  home: home,
+  journal: journal,
   bloodsugar: bloodsugar,
+  notes: notes,
   routing: routeReducer
 });
 

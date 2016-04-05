@@ -37,7 +37,9 @@ export function bs_read() {
 
     return query.find({
       success: (results) => {
-        dispatch(bsReceiveData(results))
+        return setTimeout(() => {
+          dispatch(bsReceiveData(results))
+        }, 2050);
       },
       error: (error) => { }
     })
