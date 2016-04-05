@@ -13,7 +13,7 @@ function postsRequestData() {
   }
 }
 
-function postsReceiveData(json) {
+function postsDataReceived(json) {
   return {
     type: POSTS_RECEIVE_DATA,
     data: json
@@ -37,7 +37,7 @@ export function posts_get() {
     return query.find({
       success: (results) => {
         // fix data result type
-        dispatch(postsReceiveData(results));
+        dispatch(postsDataReceived(results));
       },
       error: (error) => { }
     })
@@ -86,17 +86,6 @@ export function posts_remove(post_id) {
           }
         })
       })
-    // debugger
-    // deletable.destroy({
-    //   success: function (myObject) {
-    //     // The object was deleted from the Parse Cloud.
-    //   },
-    //   error: function (myObject, error) {
-    //     // The delete failed.
-    //     // error is a Parse.Error with an error code and message.
-    //   }
-    // })
-    // return PostObject.remove
   }
 }
 // this.props.actions.posts_update(post_id, )
