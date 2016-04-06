@@ -28,25 +28,47 @@ class Home extends Component {
 
     renderHome = (
       <div className="home-main">
-        <Journal
-          data={this.props.journal.data}
-          actions={this.props.journal_actions}
-          isLoading={this.props.journal.isLoading}
-        />
-        <BloodSugar
-          data={this.props.bloodsugar.data}
-          actions={this.props.bloodsugar_actions}
-          isLoading={this.props.bloodsugar.isLoading}
-        />
-        <Notes
-          data={this.props.notes.data}
-          actions={this.props.notes_actions}
-          isLoading={this.props.notes.isLoading}
-        />
-        <LiveTime />
+        <div className="ui grid">
+
+          <div className="eight wide column leftside">
+
+            <div className="tile journal-tile teal">
+              <Journal
+                data={this.props.journal.data}
+                actions={this.props.journal_actions}
+                isLoading={this.props.journal.isLoading}
+              />
+            </div>
+
+          </div>
+
+          <div className="eight wide column rightside">
+
+            <div className="tile livetime-tile purple">
+              <LiveTime />
+            </div>
+
+            <div className="tile bloodsugar-tile red">
+              <BloodSugar
+                data={this.props.bloodsugar.data}
+                actions={this.props.bloodsugar_actions}
+                isLoading={this.props.bloodsugar.isLoading}
+              />
+            </div>
+
+            <div className="tile notes-tile yellow">
+              <Notes
+                data={this.props.notes.data}
+                actions={this.props.notes_actions}
+                isLoading={this.props.notes.isLoading}
+              />
+            </div>
+
+          </div>
+        </div>
+
       </div>
     )
-    // }
     return renderHome
   }
 }

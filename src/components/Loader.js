@@ -10,7 +10,7 @@ export default class Loader extends Component {
       <div className="ui vertical segment">
         <br/><br/>
         <div className="ui active inverted dimmer">
-          <div className="ui text loader">Loading</div>
+          <div className="ui text loader">Lataa...</div>
         </div>
         <p></p>
         <br/><br/>

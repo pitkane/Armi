@@ -65,7 +65,37 @@ export default class Journal extends Component {
               )
             })}
           </ul>
+          <div>
+            SIKANAN KURAAAAAAAAAAAA <br/><br/>
+            SIKANAN KURAAAAAAAAAAAA <br/><br/>
 
+            SIKANAN KURAAAAAAAAAAAA <br/><br/>
+            SIKANAN KURAAAAAAAAAAAA <br/><br/>
+            SIKANAN KURAAAAAAAAAAAA <br/><br/>
+            SIKANAN KURAAAAAAAAAAAA <br/><br/>
+            SIKANAN KURAAAAAAAAAAAA <br/><br/>
+            SIKANAN KURAAAAAAAAAAAA <br/><br/>SIKANAN KURAAAAAAAAAAAA <br/><br/>
+            SIKANAN KURAAAAAAAAAAAA <br/><br/>
+            SIKANAN KURAAAAAAAAAAAA <br/><br/>
+            SIKANAN KURAAAAAAAAAAAA <br/><br/>
+            SIKANAN KURAAAAAAAAAAAA <br/><br/>
+            SIKANAN KURAAAAAAAAAAAA <br/><br/>
+            SIKANAN KURAAAAAAAAAAAA <br/><br/>
+            SIKANAN KURAAAAAAAAAAAA <br/><br/>
+
+            SIKANAN KURAAAAAAAAAAAA <br/><br/>
+            SIKANAN KURAAAAAAAAAAAA <br/><br/>
+            SIKANAN KURAAAAAAAAAAAA <br/><br/>
+            SIKANAN KURAAAAAAAAAAAA <br/><br/>
+            SIKANAN KURAAAAAAAAAAAA <br/><br/>
+            SIKANAN KURAAAAAAAAAAAA <br/><br/>
+            SIKANAN KURAAAAAAAAAAAA <br/><br/>
+            SIKANAN KURAAAAAAAAAAAA <br/><br/>
+            SIKANAN KURAAAAAAAAAAAA <br/><br/>
+            SIKANAN KURAAAAAAAAAAAA <br/><br/>
+            SIKANAN KURAAAAAAAAAAAA <br/><br/>
+
+          </div>
         </div>
       )
     }

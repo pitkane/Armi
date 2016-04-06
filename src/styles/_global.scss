@@ -1,0 +1,99 @@
+
+
+.app-main {
+  margin-bottom: 10px;
+}
+
+.home-main .leftside {
+  padding: 0 !important;
+  // overflow-y: scroll;
+}
+
+.home-main .rightside {
+  padding: 0 !important;
+  height: 100%;
+  // overflow-y: scroll;
+}
+
+.journal-tile {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.livetime-tile {
+  height: 33vh;
+  overflow-y: scroll;
+  // display:inline-block;
+}
+
+.bloodsugar-tile {
+  height: 33vh;
+  overflow-y: scroll;
+  // display:inline-block;
+}
+
+.notes-tile {
+  height: 33vh;
+  overflow-y: scroll;
+  // display:inline-block;
+}
+
+html, body {
+  height: 100%;
+  font-family: Lato, Helvetica Neue, serif;
+  line-height: 1.4;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-bottom: 20px;
+  // margin-bottom: 20px;
+  // margin: 0;
+  background: #2c3e50;
+
+  // -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+
+.ui.active.dimmer {
+  background: none;
+}
+//
+//
+// main {
+//   height: 100vh;
+//   display: flex;
+// }
+//
+// .left, .right {
+//   overflow-y: scroll;
+// }
+//
+// .left {
+//   flex: 1;
+// }
+//
+// .right {
+//   // display: flex;
+//   // flex-wrap: wrap;
+//   flex: 1;
+//   height: 100vh;
+// }
+//
+// .right > div {
+//   flex: 1 0 calc(50% - 10px);
+//   margin: 5px;
+//
+// }
+//
+// .right > div:first-child {
+//   flex: 0 1 calc(100% - 10px);
+//   margin: 5px;
+// }
+
+// .flex-container {
+//   display: flex;
+// }
+// .flex-item {
+//   flex: 1;
+// }

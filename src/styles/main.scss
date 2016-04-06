@@ -1,6 +1,10 @@
-@import '../../lib/semantic/dist/semantic.css'
+@import '../../lib/semantic/dist/semantic.css';
 
-
+@import 'variables';
+@import 'global';
+@import 'tile';
+@import 'livetime';
+@import 'journal';
 
 
 // @import url(https://fonts.googleapis.com/css?family=Raleway:100,400);

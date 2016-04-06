@@ -13,10 +13,10 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="main-app-container">
-        <Header />
+      <div className="app-main">
+        {/* <Header /> */}
         {this.props.children}
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }

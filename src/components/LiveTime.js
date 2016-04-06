@@ -11,18 +11,18 @@ class LiveTime extends Component {
   }
 
   componentWillMount() {
-    this.setTime();
+    const intervalId = window.setInterval(this.setTime, 1000);
+    this.setState({ intervalId: intervalId })
+    this.setTime()
   }
 
-  componentDidMount() {
-    window.setInterval(this.setTime, 1000);
+  componentWillUnmount() {
+    clearInterval(this.state.intervalId)
   }
-
 
   setTime() {
     const timeNow = moment().format('HH:mm:ss')
     this.setState({ timeNow })
-
   }
 
   render() {
