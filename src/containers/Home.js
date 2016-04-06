@@ -39,7 +39,7 @@ class Home extends Component {
                 isLoading={this.props.journal.isLoading}
               />
             </div>
-
+            
           </div>
 
           <div className="eight wide column rightside">

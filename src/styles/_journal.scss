@@ -1,19 +1,55 @@
 
+.journal-main {
 
+  h2 {
+    text-align: center;
+  }
 
+  p {
+    font-size: 1.5rem;
+    color: #000;
+  }
 
+  .date {
+    color: #000;
+     font-size: 2rem;
+     font-weight: 400;
+     opacity: 0.7;
+     margin-bottom: auto;
+   }
 
+  .journal-buttons {
+   text-align: center;
+  }
 
+  .journal-mornnoon {
+  position: relative;
+   i {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+   }
+  }
 
-// .journal-buttons .ui.button {
-//   margin-right: 10px;
-// }
+  .date {
+    font-size: 2rem;
+    font-weight: 400;
+    opacity: 0.7;
+    margin-bottom: auto;
+  }
+}
+//
+// // .journal-buttons .ui.button {
+// //   margin-right: 10px;
+// // }
+//
 // .pushright {
 //   margin-left: auto !important;
 //   color: #fff;
 // }
-// .journal {
 //
+// .journal {
 //   .buttons {
 //     width: 70%;
 //   }

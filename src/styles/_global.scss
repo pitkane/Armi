@@ -50,14 +50,15 @@ html, body {
   // margin: 0;
   background: #2c3e50;
 
-  // -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
   overflow: hidden;
 }
-
 
 .ui.active.dimmer {
   background: none;
 }
+
+
 //
 //
 // main {

@@ -34,7 +34,7 @@ export function journal_read() {
     const JournalObject = Parse.Object.extend('Journal')
     const query = new Parse.Query(JournalObject)
 
-    return query.find({
+    return query.descending('createdAt').find({
       success: (results) => {
         // fix data result type
         dispatch(journalDataReceived(results));

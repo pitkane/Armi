@@ -12,6 +12,8 @@
     "camelcase": 0,
     "no-console": 0,
     "no-trailing-spaces": 0,
+    "no-else-return": 0,
+    "max-len": [0, 100, 2, {"ignoreUrls": true}],
   },
   "globals": {
     "$": false
