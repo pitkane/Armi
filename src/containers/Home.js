@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import _ from 'lodash'
-
 // import * as HomeActions from '../actions/HomeActions'
 import * as JournalActions from '../actions/JournalActions'
 import * as BloodSugarActions from '../actions/BloodSugarActions'
@@ -13,6 +11,7 @@ import Loader from '../components/Loader'
 import BloodSugar from '../components/BloodSugar'
 import Notes from '../components/Notes'
 import Journal from '../components/Journal'
+import LiveTime from '../components/LiveTime'
 
 class Home extends Component {
   constructor(props) {
@@ -44,6 +43,7 @@ class Home extends Component {
           actions={this.props.notes_actions}
           isLoading={this.props.notes.isLoading}
         />
+        <LiveTime />
       </div>
     )
     // }

@@ -1,5 +1,17 @@
 # Worklog
 
+### 6.4.2016
+
+Imported LiveTime container from another project :)
+
+### 5.4.2016
+
+- Added "Notes" module (CREATE, READ and DELETE) possible. Same kinda actions as Blood sugar has.
+
+- Renamed Home actions to Journal. Home is container component as it should be.
+
+TODO: Module stuff? Import React Clock from other project. UPDATE for Journal and Notes.
+
 ### 5.4.2016
 
 - Added Blood Sugar tracking functionality
