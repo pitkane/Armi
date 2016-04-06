@@ -1,4 +1,16 @@
 
+.journal-entry {
+
+  position: relative;
+
+  button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    // transform: translateY(-50%);
+  }
+}
+
 .journal-main {
 
   h2 {
@@ -37,6 +49,9 @@
     font-weight: 400;
     opacity: 0.7;
     margin-bottom: auto;
+  }
+  .hovered {
+    display: none;
   }
 }
 //
