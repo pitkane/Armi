@@ -5,7 +5,7 @@
 - @pitkane Imported LiveTime container from another project :)
 
 - @pitkane Journal styling
--
+
 - @pitkane Added styling all around, lot's of work to do.
 
 ### 5.4.2016
