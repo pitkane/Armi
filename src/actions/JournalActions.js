@@ -48,6 +48,7 @@ export function journal_read() {
 
 export function journal_create(body, username = 'Nimetön', importance = 0) {
   return (dispatch) => {
+    dispatch(journalRequestData())
     const JournalObject = Parse.Object.extend('Journal')
     const newPost = new JournalObject
     newPost.set('body', body)

@@ -63,32 +63,38 @@ export default class Journal extends Component {
   }
 
   renderForm() {
-    // debugger
     if (this.state.displayForm) {
-      return (
-        <form className="ui form" onSubmit={(event) => this.addPost(event)}>
-          <div className="field">
-            <textarea autoFocus name="body" rows="3" placeholder="Lisää teksti..."></textarea>
-          </div>
-          <div className="fields">
-            <div className="eight wide field">
-              <label>Kirjoittaja</label>
+      if (this.props.isLoading) return <Loader />
+      else {
+        return (
+          <div className="ui grid" style={{ paddingBottom: '20px' }}>
+            <div className="ui sixteen wide container">
+              <form className="ui form" onSubmit={(event) => this.addPost(event)}>
+                <div className="field">
+                  <textarea autoFocus name="body" rows="3" placeholder="Lisää teksti..."></textarea>
+                </div>
+                <div className="fields">
+                  <div className="eight wide field">
+                    <label>Kirjoittaja</label>
 
-              <input type="text" name="username" />
-            </div>
-            <div className="eight wide field">
-              <label>Tärkeysaste</label>
-              <select name="importance" className="ui selection dropdown">
-                <option value="0">Normaali</option>
-                <option value="1">Tärkeä</option>
-                <option value="2">Kriittinen</option>
-              </select>
+                    <input type="text" name="username" />
+                  </div>
+                  <div className="eight wide field">
+                    <label>Tärkeysaste</label>
+                    <select name="importance" className="ui selection dropdown">
+                      <option value="0">Normaali</option>
+                      <option value="1">Tärkeä</option>
+                      <option value="2">Kriittinen</option>
+                    </select>
+                  </div>
+                </div>
+                <input type="submit" className="ui primary button right floated" value="Lisää merkintä" />
+                <button type="button" className="ui button right floated" onClick={ () => { this.setState({ displayForm: false })} }>Hylkää</button>
+              </form>
             </div>
           </div>
-          <input type="submit" className="ui primary button" value="Lisää merkintä" />
-          <button type="button" className="ui button right floated" onClick={ () => { $('.ui.modal').show() } }>Hylkää</button>
-        </form>
-      )
+        )
+      }
     } else {
       return (
         <div className="journal-buttons">
@@ -97,11 +103,16 @@ export default class Journal extends Component {
             Päivyrimerkintä
           </button>
           <button className="ui orange button">
+            <i className="treatment icon"></i>
             Verensokeri
           </button>
           <button className="ui labeled icon red button">
             <i className="heart icon"></i>
             Verenpaine
+          </button>
+          <button className="ui labeled icon yellow button">
+            <i className="write icon"></i>
+            Muistiinpano
           </button>
         </div>
       )
@@ -111,24 +122,24 @@ export default class Journal extends Component {
   render() {
     let renderJournal = ''
 
-    if (this.props.isLoading) renderJournal = <Loader />
-    else {
+
+    // else {
       renderJournal = (
         <div className="journal-main">
-
-          <Modal />
 
           <h2>Päivyri</h2>
 
           { this.renderForm() }
 
-          {_.isEmpty(this.props.data) ? (<p>Ei merkintöjä ;)</p>) : ''}
+          {_.isEmpty(this.props.data) ? (<Loader />) : ''}
 
-          { this.props.data.map(data => { return <JournalEntry data={data} actions={this.props.actions} /> })}
+          { this.props.data.map(data => {
+            return <JournalEntry data={data} actions={this.props.actions} />
+          })}
 
         </div>
       )
-    }
+    // }
 
     return renderJournal
   }

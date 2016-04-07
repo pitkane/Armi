@@ -36,29 +36,31 @@ export default class Notes extends Component {
     else {
       renderNotes = (
         <div className="notes-main">
-          <form className="notes-form" onSubmit={(event) => this.addNote(event)}>
+          {/* <form className="notes-form" onSubmit={(event) => this.addNote(event)}>
             <input type="text" name="body" />
             <input type="text" name="username" />
             <div className="ui checkbox">
-              <input name="critical" type="checkbox" />
-              <label>Label</label>
+            <input name="critical" type="checkbox" />
+            <label>Label</label>
             </div>
             <input type="submit" value="Add" />
-          </form>
+          </form> */}
 
           {_.isEmpty(this.props.data) ? (<p>Empty set </p>) : ''}
 
-          <ul>
-            { this.props.data.map(data => {
-              const notes_id = data.id
-              return (
-                <li key={notes_id}>
-                  {data.get('body')} ({data.get('username')}, {data.get('critical')})
-                  <button onClick={() => this.props.actions.notes_delete(notes_id)}>X</button>
-                </li>
-              )
-            })}
-          </ul>
+
+          { this.props.data.map(data => {
+
+            const notes_id = data.id
+            return (
+              <div key={notes_id} className="ui raised segment">
+                <p style={{ fontSize: '1.5rem' }}>
+                  {data.get('body')} {/* }({data.get('username')}, {data.get('critical')}) */}
+                </p>
+                {/* <button onClick={() => this.props.actions.notes_delete(notes_id)}>X</button> */}
+              </div>
+            )
+          })}
 
         </div>
       )

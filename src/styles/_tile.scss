@@ -8,7 +8,7 @@ $base-size: 300px;
   // text-align: center;
   background: #5C6A79;
   background-size: cover;
-  color: #fff;
+  // color: #fff;
   min-height: 253px;
 
   h1 {
@@ -19,6 +19,7 @@ $base-size: 300px;
   }
 
   h2 {
+    color: #fff;
     font-size: 5.8rem;
     word-wrap: break-word;
     line-height: 1.1;

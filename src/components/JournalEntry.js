@@ -36,7 +36,6 @@ export default class JournalEntry extends Component {
       // 'eight': this.state.hovered,
       'twelve wide column': true
     })
-    console.log(this.props)
 
     return (
       <div key={data.id}
@@ -58,7 +57,7 @@ export default class JournalEntry extends Component {
           </p>
         </div>
 
-        {this.state.hovered ? (<Button label="Poista" className="delete-button" />) : '' }
+        {this.state.hovered ? (<button onClick={() => this.props.actions.journal_delete(data.id)} className="ui blue button delete-button">Poista...</button>) : '' }
 
         {/* <button
           ref={`delete_button- + ${data.id}`}

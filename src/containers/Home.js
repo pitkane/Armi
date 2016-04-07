@@ -12,6 +12,8 @@ import BloodSugar from '../components/BloodSugar'
 import Notes from '../components/Notes'
 import Journal from '../components/Journal'
 import LiveTime from '../components/LiveTime'
+import BloodPressureTable from '../components/BloodPressureTable'
+import BloodSugarTable from '../components/BloodSugarTable'
 
 class Home extends Component {
   constructor(props) {
@@ -39,7 +41,7 @@ class Home extends Component {
                 isLoading={this.props.journal.isLoading}
               />
             </div>
-            
+
           </div>
 
           <div className="eight wide column rightside">
@@ -48,12 +50,27 @@ class Home extends Component {
               <LiveTime />
             </div>
 
-            <div className="tile bloodsugar-tile red">
-              <BloodSugar
-                data={this.props.bloodsugar.data}
-                actions={this.props.bloodsugar_actions}
-                isLoading={this.props.bloodsugar.isLoading}
-              />
+            <div className="ui grid">
+
+              <div className="eight wide column" style={{ paddingRight: 0 }}>
+                <div className="tile bloodpressure-tile red">
+
+                  <BloodPressureTable />
+
+                </div>
+              </div>
+
+              <div className="eight wide column" style={{ paddingLeft: 0 }}>
+                <div className="tile bloodsugar-tile orange">
+                  <BloodSugarTable />
+                  {/* <BloodSugar
+                    data={this.props.bloodsugar.data}
+                    actions={this.props.bloodsugar_actions}
+                    isLoading={this.props.bloodsugar.isLoading}
+                  /> */}
+                </div>
+              </div>
+
             </div>
 
             <div className="tile notes-tile yellow">

@@ -38,6 +38,12 @@
   // display:inline-block;
 }
 
+.bloodpressure-tile {
+  height: 33vh;
+  overflow-y: scroll;
+  // display:inline-block;
+}
+
 html, body {
   height: 100%;
   font-family: Lato, Helvetica Neue, serif;

@@ -7,14 +7,9 @@
   justify-content: center;
   align-items: center;
 
-  .date {
-    font-size: 4.5rem;
-    font-weight: 400;
-    opacity: 0.7;
-    // margin-bottom: auto;
-  }
 
   .time {
+    padding-top: 25px;
     // margin-top: auto;
     font-size: 10rem;
     word-wrap: break-word;
@@ -22,4 +17,12 @@
     font-weight: 700;
     text-shadow: 0 1px 1px rgba(#000, 0.4);
   }
+
+  .date {
+    font-size: 4.5rem;
+    font-weight: 400;
+    opacity: 0.7;
+    // margin-bottom: auto;
+  }
+
 }
