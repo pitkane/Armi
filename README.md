@@ -1,6 +1,6 @@
 # Armi - Dashboard
 
-Just Do It :)
+![Armi - Dashboard](https://drive.google.com/open?id=0BwWdduICTQAra1p2QmNKUms4MFU)
 
 ## Dev Server
 
