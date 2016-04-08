@@ -5,7 +5,10 @@ import _ from 'lodash'
 import {
   JOURNAL_REQUEST_DATA,
   JOURNAL_RECEIVE_DATA,
-  JOURNAL_RECEIVE_ERROR } from '../constants/ActionTypes';
+  JOURNAL_RECEIVE_ERROR,
+  JOURNAL_CHANGE_FORM,
+  JOURNAL_CLOSE_FORM,
+ } from '../constants/ActionTypes';
 
 function journalRequestData() {
   return {
@@ -34,7 +37,7 @@ export function journal_read() {
     const JournalObject = Parse.Object.extend('Journal')
     const query = new Parse.Query(JournalObject)
 
-    return query.descending('createdAt').find({
+    return query.descending('creationDate').find({
       success: (results) => {
         // fix data result type
         dispatch(journalDataReceived(results));
@@ -52,6 +55,7 @@ export function journal_create(body, username = 'Nimetön', importance = 0) {
     const JournalObject = Parse.Object.extend('Journal')
     const newPost = new JournalObject
     newPost.set('body', body)
+    newPost.set('creationDate', new Date())
     newPost.set('importance', _.toNumber(importance))
     newPost.set('username', username)
     return newPost.save(null, {

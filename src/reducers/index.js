@@ -4,12 +4,14 @@ import { combineReducers } from 'redux';
 import bloodsugar from './bloodsugar'
 import notes from './notes'
 import journal from './journal'
+import forms from './forms'
 import { routeReducer } from 'react-router-redux';
 
 const rootReducer = combineReducers({
   journal: journal,
   bloodsugar: bloodsugar,
   notes: notes,
+  forms: forms,
   routing: routeReducer
 });
 

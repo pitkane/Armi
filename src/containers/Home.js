@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux'
 import * as JournalActions from '../actions/JournalActions'
 import * as BloodSugarActions from '../actions/BloodSugarActions'
 import * as NotesActions from '../actions/NotesActions'
+import * as FormsActions from '../actions/FormsActions'
 
 import Loader from '../components/Loader'
 import BloodSugar from '../components/BloodSugar'
@@ -14,6 +15,8 @@ import Journal from '../components/Journal'
 import LiveTime from '../components/LiveTime'
 import BloodPressureTable from '../components/BloodPressureTable'
 import BloodSugarTable from '../components/BloodSugarTable'
+
+import Forms from '../components/Forms'
 
 class Home extends Component {
   constructor(props) {
@@ -35,6 +38,13 @@ class Home extends Component {
           <div className="eight wide column leftside">
 
             <div className="tile journal-tile teal">
+              <h2>Päivyri</h2>
+
+              <Forms
+                state={this.props.forms}
+                forms_actions={this.props.forms_actions}
+              />
+
               <Journal
                 data={this.props.journal.data}
                 actions={this.props.journal_actions}
@@ -94,7 +104,8 @@ function mapStateToProps(state) {
   return {
     journal: state.journal,
     bloodsugar: state.bloodsugar,
-    notes: state.notes
+    notes: state.notes,
+    forms: state.forms
   }
 }
 
@@ -104,6 +115,7 @@ function mapDispatchToProps(dispatch) {
     journal_actions: bindActionCreators(JournalActions, dispatch),
     bloodsugar_actions: bindActionCreators(BloodSugarActions, dispatch),
     notes_actions: bindActionCreators(NotesActions, dispatch),
+    forms_actions: bindActionCreators(FormsActions, dispatch)
   };
 }
 

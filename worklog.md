@@ -1,11 +1,14 @@
 # Worklog
 
+### 8.4.2016
+
+
+
 ### 7.4.2016
 
 Agenda: Journal delete button working ;) 2min and done, but user experience sucks... Clicking the button takes some hundred ms to respond, and user gets no feedback immediately after click. low prior task to fix this :) AAAAAND mobile not tested at all, tho this project is not build for mobile (yet) at least...
 
 - Created new BloodPressure Component
-- 
 
 
 ### 6.4.2016

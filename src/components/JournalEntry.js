@@ -29,7 +29,7 @@ export default class JournalEntry extends Component {
 
   render() {
     const { data } = this.props
-    const createdAt = data.get('createdAt')
+    const creationDate = data.get('creationDate')
 
     const bodyClass = classNames({
       // 'twelve': !this.state.hovered,
@@ -44,11 +44,11 @@ export default class JournalEntry extends Component {
         onMouseLeave={() => {this.setState({ hovered: false })}}
       >
         <div className="two wide column journal-mornnoon">
-          {this.printSun(data.get('createdAt'))}
+          {this.printSun(data.get('creationDate'))}
         </div>
 
-        <div className="two wide column">
-          <div className="date">{ _.capitalize(moment(createdAt).format('ddd D.M')) }</div>
+        <div className="two wide column" style={{ textAlign: 'left' }}>
+          <div className="date" >{ _.capitalize(moment(creationDate).format('ddd D.M')) }</div>
         </div>
 
         <div className={bodyClass}>
