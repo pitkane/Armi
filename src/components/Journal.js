@@ -21,7 +21,9 @@ export default class Journal extends Component {
 
       <div className="journal-main">
 
-        {_.isEmpty(this.props.data) ? (<Loader />) : ''}
+        { this.props.isLoading ? <Loader /> : '' }
+
+        {/* {_.isEmpty(this.props.data) ? (<Loader />) : ''} */}
 
         { this.props.data.map(data => {
           return <JournalEntry key={data.id} data={data} actions={this.props.actions} />

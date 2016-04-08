@@ -27,7 +27,6 @@ export default class JournalForm extends Component {
     )
       .then((success) => {
         console.log('(Home: addPost) Success')
-        this.setState({ displayForm: false })
       }, (error) => {
         console.log(error)
       })
@@ -37,7 +36,7 @@ export default class JournalForm extends Component {
     return (
       <div className="ui grid" style={{ paddingBottom: '20px' }}>
         <div className="ui sixteen wide container">
-          <form className="ui form" onSubmit={ this.props.onSubmit }>
+          <form className="ui form" onSubmit={ (event) => this.addPost(event) }>
             <div className="field">
               <textarea autoFocus name="body" rows="3" placeholder="Lisää teksti..."></textarea>
             </div>

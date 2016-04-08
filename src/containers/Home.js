@@ -43,6 +43,9 @@ class Home extends Component {
               <Forms
                 state={this.props.forms}
                 forms_actions={this.props.forms_actions}
+                journal_actions={this.props.journal_actions}
+                notes_actions={this.props.notes_actions}
+                bloodsugar_actions={this.props.bloodsugar_actions}
               />
 
               <Journal

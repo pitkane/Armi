@@ -2,6 +2,7 @@
 
 ### 8.4.2016
 
+- Journal was getting bloated, so made Forms component, which handles all adding and updating. Kinda messy code right now, but it should be better once everything finds its place :)
 
 
 ### 7.4.2016

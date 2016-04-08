@@ -27,11 +27,11 @@ export default class Journal extends Component {
     if (this.props.state.displayForm === true) {
       switch (this.props.state.form) {
         case 'journal':
-          renderForm = (<JournalForm closeForm={ () => this.props.forms_actions.closeForm() }/>)
+          renderForm = (<JournalForm actions={this.props.journal_actions} closeForm={ () => this.props.forms_actions.closeForm() }/>)
           break
 
         case 'notes':
-          renderForm = (<NotesForm closeForm={ () => this.props.forms_actions.closeForm() }/>)
+          renderForm = (<NotesForm actions={this.props.notes_actions} closeForm={ () => this.props.forms_actions.closeForm() }/>)
           break
 
         default:
