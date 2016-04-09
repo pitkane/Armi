@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux'
 // import * as HomeActions from '../actions/HomeActions'
 import * as JournalActions from '../actions/JournalActions'
 import * as BloodSugarActions from '../actions/BloodSugarActions'
+import * as BloodPressureActions from '../actions/BloodPressureActions'
 import * as NotesActions from '../actions/NotesActions'
 import * as FormsActions from '../actions/FormsActions'
 
@@ -46,6 +47,7 @@ class Home extends Component {
                 journal_actions={this.props.journal_actions}
                 notes_actions={this.props.notes_actions}
                 bloodsugar_actions={this.props.bloodsugar_actions}
+                bloodpressure_actions={this.props.bloodpressure_actions}
               />
 
               <Journal
@@ -68,7 +70,12 @@ class Home extends Component {
               <div className="eight wide column" style={{ paddingRight: 0 }}>
                 <div className="tile bloodpressure-tile red">
 
-                  <BloodPressureTable />
+                  <BloodPressureTable
+
+                    actions={this.props.bloodpressure_actions}
+                    data={this.props.bloodpressure.data}
+                    isLoading={this.props.bloodpressure.isLoading}
+                  />
 
                 </div>
               </div>
@@ -76,11 +83,6 @@ class Home extends Component {
               <div className="eight wide column" style={{ paddingLeft: 0 }}>
                 <div className="tile bloodsugar-tile orange">
                   <BloodSugarTable />
-                  {/* <BloodSugar
-                    data={this.props.bloodsugar.data}
-                    actions={this.props.bloodsugar_actions}
-                    isLoading={this.props.bloodsugar.isLoading}
-                  /> */}
                 </div>
               </div>
 
@@ -107,6 +109,7 @@ function mapStateToProps(state) {
   return {
     journal: state.journal,
     bloodsugar: state.bloodsugar,
+    bloodpressure: state.bloodpressure,
     notes: state.notes,
     forms: state.forms
   }
@@ -117,6 +120,7 @@ function mapDispatchToProps(dispatch) {
     dispatch: dispatch,
     journal_actions: bindActionCreators(JournalActions, dispatch),
     bloodsugar_actions: bindActionCreators(BloodSugarActions, dispatch),
+    bloodpressure_actions: bindActionCreators(BloodPressureActions, dispatch),
     notes_actions: bindActionCreators(NotesActions, dispatch),
     forms_actions: bindActionCreators(FormsActions, dispatch)
   };

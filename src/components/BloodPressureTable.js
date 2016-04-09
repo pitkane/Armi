@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import classNames from 'classnames'
+import _ from 'lodash'
+
+import Loader from './Loader'
 
 export default class BloodPressureTable extends Component {
 
@@ -7,76 +10,48 @@ export default class BloodPressureTable extends Component {
     super(props)
   }
 
+  componentDidMount() {
+    this.props.actions.bp_read()
+  }
+
   render() {
-    return (
-      <table className="ui large  table inverted red">
-        <thead>
-          <tr>
-            <th style={{ boxShadow: 'none' }}></th>
-            <th className="center aligned">Alapaine</th>
-            <th className="center aligned">Yläpaine</th>
-          </tr>
-        </thead>
-        <tbody>
+    let renderBP = ''
 
-          <tr>
-            <td className="collapsing">
-              <b>28.3</b>
-            </td>
-            <td className="center aligned">136 <i className=" green checkmark icon"></i></td>
-            <td className="center aligned">82 <i className=" black remove icon"></i></td>
-          </tr>
+    if (this.props.isLoading) renderBP = <Loader />
 
-          <tr>
-            <td className="collapsing">
-              <b>26.3</b>
-            </td>
-            <td className="center aligned">138 <i className=" green checkmark icon"></i></td>
-            <td className="center aligned">84 <i className=" green checkmark icon"></i></td>
-          </tr>
+    else {
+      renderBP = (
+        <div className="bloodpressure-table">
 
-          <tr>
-            <td className="collapsing">
-              <b>23.3</b>
-            </td>
-            <td className="center aligned">133 <i className=" green checkmark icon"></i></td>
-            <td className="center aligned">80 <i className=" green checkmark icon"></i></td>
-          </tr>
 
-          <tr>
-            <td className="collapsing">
-              <b>19.3</b>
-            </td>
-            <td className="center aligned">125 <i className=" green checkmark icon"></i></td>
-            <td className="center aligned">92 <i className=" green checkmark icon"></i></td>
-          </tr>
+          <table className="ui large  table inverted red">
+            <thead>
+              <tr>
+                <th style={{ boxShadow: 'none' }}></th>
+                <th className="center aligned">Alapaine</th>
+                <th className="center aligned">Yläpaine</th>
+              </tr>
+            </thead>
+            <tbody>
+              { this.props.data.map(data => {
+                const bp_id = data.id
+                return (
+                  <tr key={bp_id}>
+                    <td className="collapsing">
+                      <b>28.3</b>
+                    </td>
+                    <td className="center aligned">{data.get('diastolic')} <i className=" green checkmark icon"></i></td>
+                    <td className="center aligned">{data.get('systolic')} <i className=" green checkmark icon"></i></td>
+                    {/* <td className="center aligned">{data.get('systolic')} <i className=" black remove icon"></i></td> */}
+                  </tr>
+                )
+              })}
 
-          <tr>
-            <td className="collapsing">
-              <b>17.3</b>
-            </td>
-            <td className="center aligned">140 <i className=" green checkmark icon"></i></td>
-            <td className="center aligned">99 <i className=" black remove icon"></i></td>
-          </tr>
-
-          <tr>
-            <td className="collapsing">
-              <b>16.3</b>
-            </td>
-            <td className="center aligned">136 <i className=" black remove icon"></i></td>
-            <td className="center aligned">82 <i className=" green checkmark icon"></i></td>
-          </tr>
-
-          <tr>
-            <td className="collapsing">
-              <b>15.3</b>
-            </td>
-            <td className="center aligned">136 <i className=" green checkmark icon"></i></td>
-            <td className="center aligned">82 <i className=" black remove icon"></i></td>
-          </tr>
-
-        </tbody>
-      </table>
-    )
+            </tbody>
+          </table>
+        </div>
+      )
+    }
+    return renderBP
   }
 }

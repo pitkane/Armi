@@ -10,6 +10,8 @@ import JournalEntry from './JournalEntry'
 
 import JournalForm from './JournalForm'
 import NotesForm from './NotesForm'
+import BloodPressureForm from './BloodPressureForm'
+import BloodSugarForm from './BloodSugarForm'
 
 export default class Journal extends Component {
 
@@ -32,6 +34,14 @@ export default class Journal extends Component {
 
         case 'notes':
           renderForm = (<NotesForm actions={this.props.notes_actions} closeForm={ () => this.props.forms_actions.closeForm() }/>)
+          break
+
+        case 'bloodpressure':
+          renderForm = (<BloodPressureForm actions={this.props.bloodpressure_actions} closeForm={ () => this.props.forms_actions.closeForm() }/>)
+          break
+
+        case 'bloodsugar':
+          renderForm = (<BloodSugarForm actions={this.props.bloodsugar_actions} closeForm={ () => this.props.forms_actions.closeForm() }/>)
           break
 
         default:
