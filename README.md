@@ -1,6 +1,6 @@
 # Armi - Dashboard
 
-![Armi - Dashboard](https://drive.google.com/uc?export=download&id=0BwWdduICTQAra1p2QmNKUms4MFU)
+![Armi - Dashboard](https://drive.google.com/uc?export=download&id=0BwWdduICTQArbDlwNVd0aW9Rd2c)
 
 ## Dev Server
 
