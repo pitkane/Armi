@@ -2,6 +2,8 @@
 
 ![Armi - Dashboard](https://drive.google.com/uc?export=download&id=0BwWdduICTQArbDlwNVd0aW9Rd2c)
 
+Todo: insert about section here. Redux and promise based async actions to Parse etc etc...
+
 ## Dev Server
 
 ```
