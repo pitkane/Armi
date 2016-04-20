@@ -3,11 +3,12 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Parse from 'parse'
 
-import { parseID, parseJS } from '../../config.js'
+import { appId, masterKey, parseURL } from '../../config.js'
 
 export default class App extends Component {
   componentWillMount() {
-    Parse.initialize(parseID, parseJS);
+    Parse.initialize(appId, masterKey);
+    Parse.serverURL = parseURL
     console.log('Parse initialized')
   }
 

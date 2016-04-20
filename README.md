@@ -25,14 +25,13 @@ gulp build
 ```
 
 ## config.js
-
+```
 // Hold application secrets and config
 
-```js
 module.exports = {
-  parseID: '',
-  parseJS: '',
-  secret: ''
+  appId: '',
+  masterKey: '',
+  parseURL: ''
 };
 ```
 
