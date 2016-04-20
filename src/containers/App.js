@@ -3,7 +3,7 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Parse from 'parse'
 
-import { appId, masterKey, parseURL } from '../../config.js'
+import { appId, masterKey, parseURL } from '../../config_secrets.js'
 
 export default class App extends Component {
   componentWillMount() {

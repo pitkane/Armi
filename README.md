@@ -4,6 +4,8 @@
 
 Todo: insert about section here. Redux and promise based async actions to Parse etc etc...
 
+- TODO: building semantic, kinda sucks...
+
 ## Dev Server
 
 ```
@@ -30,10 +32,17 @@ gulp build
 ```
 // Hold application secrets and config
 
+const appPort = 3001;
+const appIP = '127.0.0.1';
+const appURL = `http://${appIP}:${appPort}`
+
 module.exports = {
   appId: '',
   masterKey: '',
-  parseURL: ''
+  appPort: appPort,
+  appIP: appIP,
+  appURL: appURL,
+  parseURL: '' // CHANGE THIS ON DEV/PROD
 };
 ```
 
