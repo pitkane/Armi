@@ -10,7 +10,7 @@
     "start": "node devServer.js",
     "lint": "eslint src"
   },
-  "repository": "git@github.com:pitkane/Armi.git",
+  "repository": "git@github.com:pitkane/ArmiWeb.git",
   "license": "MIT",
   "homepage": "",
   "devDependencies": {
