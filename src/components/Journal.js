@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import _ from 'lodash'
 import moment from 'moment'
 import classNames from 'classnames'
+import Parse from 'parse'
 
 import Loader from './Loader'
 import JournalEntry from './JournalEntry'
@@ -14,6 +15,19 @@ export default class Journal extends Component {
 
   componentDidMount() {
     this.props.actions.journal_read()
+
+    const query = new Parse.Query('Journal')
+    const subscription = query.subscribe()
+    subscription.on('create', (item) => {
+      // console.log(item.get('body'));
+      console.log('dispatch refresh for journal')
+      this.props.actions.journal_read()
+    });
+    subscription.on('delete', (item) => {
+      // console.log(item.get('body'));
+      console.log('dispatch refresh for journal')
+      this.props.actions.journal_read()
+    });
   }
 
   render() {

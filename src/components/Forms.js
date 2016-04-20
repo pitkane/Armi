@@ -23,7 +23,7 @@ export default class Journal extends Component {
   }
 
   render() {
-    console.log(this.props)
+    // console.log(this.props)
 
     let renderForm = ''
     if (this.props.state.displayForm === true) {

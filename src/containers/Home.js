@@ -49,7 +49,7 @@ class Home extends Component {
                 bloodsugar_actions={this.props.bloodsugar_actions}
                 bloodpressure_actions={this.props.bloodpressure_actions}
               />
-
+              
               <Journal
                 data={this.props.journal.data}
                 actions={this.props.journal_actions}
