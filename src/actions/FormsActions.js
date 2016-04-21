@@ -4,12 +4,13 @@ import _ from 'lodash'
 
 import {
   FORMS_CHANGE_FORM,
-  FORMS_CLOSE_FORM } from '../constants/ActionTypes';
+  FORMS_CLOSE_FORM,
+  FORMS_EDIT } from '../constants/ActionTypes';
 
 export function changeForm(form) {
   return {
     type: FORMS_CHANGE_FORM,
-    data: form
+    payload: form
   }
 }
 

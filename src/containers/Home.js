@@ -39,7 +39,9 @@ class Home extends Component {
           <div className="eight wide column leftside">
 
             <div className="tile journal-tile teal">
-              <h2>Päivyri</h2>
+              <div className="header-big">
+                Päivyri
+              </div>
 
               <Forms
                 state={this.props.forms}
@@ -49,9 +51,10 @@ class Home extends Component {
                 bloodsugar_actions={this.props.bloodsugar_actions}
                 bloodpressure_actions={this.props.bloodpressure_actions}
               />
-              
+
               <Journal
                 data={this.props.journal.data}
+                dispatch={this.props.dispatch}
                 actions={this.props.journal_actions}
                 isLoading={this.props.journal.isLoading}
               />

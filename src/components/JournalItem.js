@@ -27,6 +27,27 @@ export default class JournalEntry extends Component {
     }
   }
 
+  _renderButtons() {
+    // console.log(this)
+    return (
+      <div className="action-buttons">
+        <button
+          className="ui blue button delete-button"
+          onClick={() => this.props.actions.journal_delete(this.props.data.id)}
+        >
+          Poista...
+        </button>
+
+        <button
+          className="ui green button edit-button"
+          onClick={() => this.props.dispatch({ type: 'FORMS_EDIT', payload: { object: this.props.data, form: 'journal' } })}
+        >
+          Editoi...
+        </button>
+      </div>
+    )
+  }
+
   render() {
     const { data } = this.props
     const creationDate = data.get('creationDate')
@@ -57,7 +78,8 @@ export default class JournalEntry extends Component {
           </p>
         </div>
 
-        {this.state.hovered ? (<button onClick={() => this.props.actions.journal_delete(data.id)} className="ui blue button delete-button">Poista...</button>) : '' }
+        {this.state.hovered ? this._renderButtons() : ''}
+        {/* {this.state.hovered ? (<button onClick={() => this.props.actions.journal_delete(data.id)} className="ui blue button delete-button">Poista...</button>) : '' } */}
 
         {/* <button
           ref={`delete_button- + ${data.id}`}

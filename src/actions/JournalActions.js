@@ -71,6 +71,25 @@ export function journal_create(body, username = 'Nimetön', importance = 0) {
   }
 }
 
+export function journalUpdate(object, newBody, newUsername, newImportance) {
+  return (dispatch) => {
+    dispatch(journalRequestData())
+
+    object.set('body', newBody)
+    object.set('username', newUsername)
+    object.set('importance', _.toNumber(newImportance))
+
+    return object.save(null, {
+      success: (post) => {
+        dispatch(journal_read())
+      },
+      error: (item, error) => {
+        console.log(item, error)
+      }
+    })
+  }
+}
+
 // NOTES:
 // Parse.Promise then( resolvedCallback, rejectedCallback )
 // Adds callbacks to be called when this promise is fulfilled.
@@ -99,5 +118,11 @@ export function journal_delete(post_id) {
       })
   }
 }
+
+export function journalEditItem(item_id) {
+
+}
+
+
 // this.props.actions.posts_update(post_id, )
 // this.props.actions.posts_remove(post_id)

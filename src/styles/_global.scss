@@ -64,6 +64,24 @@ html, body {
   background: none;
 }
 
+.journal-buttons {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.header-big {
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  font-size: 5.8rem;
+  word-wrap: break-word;
+  line-height: 1.1;
+  font-weight: 700;
+  margin: 15px 0;
+  text-shadow: 0 1px 1px rgba(#000, 0.4);
+}
+
 
 //
 //

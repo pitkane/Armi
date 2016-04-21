@@ -5,7 +5,7 @@ import classNames from 'classnames'
 import Parse from 'parse'
 
 import Loader from './Loader'
-import JournalEntry from './JournalEntry'
+import JournalItem from './JournalItem'
 
 export default class Journal extends Component {
 
@@ -15,19 +15,6 @@ export default class Journal extends Component {
 
   componentDidMount() {
     this.props.actions.journal_read()
-
-    const query = new Parse.Query('Journal')
-    const subscription = query.subscribe()
-    subscription.on('create', (item) => {
-      // console.log(item.get('body'));
-      console.log('dispatch refresh for journal')
-      this.props.actions.journal_read()
-    });
-    subscription.on('delete', (item) => {
-      // console.log(item.get('body'));
-      console.log('dispatch refresh for journal')
-      this.props.actions.journal_read()
-    });
   }
 
   render() {
@@ -40,7 +27,7 @@ export default class Journal extends Component {
         {/* {_.isEmpty(this.props.data) ? (<Loader />) : ''} */}
 
         { this.props.data.map(data => {
-          return <JournalEntry key={data.id} data={data} actions={this.props.actions} />
+          return <JournalItem dispatch={this.props.dispatch} key={data.id} data={data} actions={this.props.actions} />
         })}
 
       </div>

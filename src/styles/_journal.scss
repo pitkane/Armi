@@ -3,11 +3,13 @@
 
   position: relative;
 
-  button {
+  .action-buttons {
     position: absolute;
     right: 10px;
     top: 10px;
     // transform: translateY(-50%);
+    display: flex;
+    flex-direction: row;
   }
 }
 
@@ -30,9 +32,6 @@
      margin-bottom: auto;
    }
 
-  .journal-buttons {
-   text-align: center;
-  }
 
   .journal-mornnoon {
   position: relative;

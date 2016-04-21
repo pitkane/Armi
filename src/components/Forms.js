@@ -6,7 +6,6 @@ import classNames from 'classnames'
 import Loader from './Loader'
 import Modal from './Modal'
 import Button from './Button'
-import JournalEntry from './JournalEntry'
 
 import JournalForm from './JournalForm'
 import NotesForm from './NotesForm'
@@ -29,19 +28,19 @@ export default class Journal extends Component {
     if (this.props.state.displayForm === true) {
       switch (this.props.state.form) {
         case 'journal':
-          renderForm = (<JournalForm actions={this.props.journal_actions} closeForm={ () => this.props.forms_actions.closeForm() }/>)
+          renderForm = (<JournalForm editing={this.props.state.editing} editObject={this.props.state.editObject} actions={this.props.journal_actions} closeForm={ () => this.props.forms_actions.closeForm() }/>)
           break
 
         case 'notes':
-          renderForm = (<NotesForm actions={this.props.notes_actions} closeForm={ () => this.props.forms_actions.closeForm() }/>)
+          renderForm = (<NotesForm editing={this.props.state.editing} editObject={this.props.state.editObject} actions={this.props.notes_actions} closeForm={ () => this.props.forms_actions.closeForm() }/>)
           break
 
         case 'bloodpressure':
-          renderForm = (<BloodPressureForm actions={this.props.bloodpressure_actions} closeForm={ () => this.props.forms_actions.closeForm() }/>)
+          renderForm = (<BloodPressureForm editing={this.props.state.editing} editObject={this.props.state.editObject} actions={this.props.bloodpressure_actions} closeForm={ () => this.props.forms_actions.closeForm() }/>)
           break
 
         case 'bloodsugar':
-          renderForm = (<BloodSugarForm actions={this.props.bloodsugar_actions} closeForm={ () => this.props.forms_actions.closeForm() }/>)
+          renderForm = (<BloodSugarForm editing={this.props.state.editing} editObject={this.props.state.editObject} actions={this.props.bloodsugar_actions} closeForm={ () => this.props.forms_actions.closeForm() }/>)
           break
 
         default:
@@ -56,22 +55,22 @@ export default class Journal extends Component {
       renderButtons = (
         <div className="journal-buttons">
 
-          <button className="huge ui labeled icon primary button" onClick={() => this.props.forms_actions.changeForm('journal')}>
+          <button className="big ui labeled icon primary button" onClick={() => this.props.forms_actions.changeForm('journal')}>
             <i className="calendar icon"></i>
             Päivyrimerkintä
           </button>
 
-          <button className="huge ui labeled icon red button" onClick={() => this.props.forms_actions.changeForm('bloodpressure')}>
+          <button className="big ui labeled icon red button" onClick={() => this.props.forms_actions.changeForm('bloodpressure')}>
             <i className="heart icon"></i>
             Verenpaine
           </button>
 
-          <button className="huge ui orange button" onClick={() => this.props.forms_actions.changeForm('bloodsugar')}>
+          <button className="big ui orange button" onClick={() => this.props.forms_actions.changeForm('bloodsugar')}>
             <i className="treatment icon"></i>
             Verensokeri
           </button>
 
-          <button className="huge ui labeled icon yellow button" onClick={() => this.props.forms_actions.changeForm('notes')}>
+          <button className="big ui labeled icon yellow button" onClick={() => this.props.forms_actions.changeForm('notes')}>
             <i className="write icon"></i>
             Muistiinpano
           </button>
