@@ -28,14 +28,14 @@ function bsReceiveError(json) {
 }
 
 
-export function bs_read() {
+export function bsRead() {
   return function (dispatch) {
     dispatch(bsRequestData())
 
     const BloodSugarObject = Parse.Object.extend('BloodSugar')
     const query = new Parse.Query(BloodSugarObject)
 
-    return query.find({
+    return query.descending('createdAt').find({
       success: (results) => {
         return setTimeout(() => {
           dispatch(bsReceiveData(results))
@@ -46,17 +46,17 @@ export function bs_read() {
   }
 }
 
-export function bs_create(value, food = false) {
+export function bsCreate(value, notes = '') {
   return (dispatch) => {
     dispatch(bsRequestData())
     const BloodSugarObject = Parse.Object.extend('BloodSugar')
     const newBS = new BloodSugarObject
     newBS.set('value', _.round(_.toNumber(value.replace(',', '.')), 2))
-    newBS.set('food', food)
+    newBS.set('notes', notes)
     return newBS.save(null, {
       success: (bs) => {
         // We can dispatch something here if needed
-        dispatch(bs_read())
+        dispatch(bsRead())
       },
       error: (bs, error) => {
         console.log(bs, error)
@@ -66,7 +66,7 @@ export function bs_create(value, food = false) {
   }
 }
 
-export function bs_delete(bs_id) {
+export function bsDelete(bs_id) {
   return function (dispatch) {
     dispatch(bsRequestData())
 
@@ -77,7 +77,7 @@ export function bs_delete(bs_id) {
       .then((bs) => {
         return bs.destroy({
           success: function (removed_bs) {
-            dispatch(bs_read());
+            dispatch(bsRead());
           },
           error: function (removed_bs, error) {
           }

@@ -1,17 +1,26 @@
 import React, { Component } from 'react'
 import classNames from 'classnames'
 import _ from 'lodash'
+import Parse from 'parse'
 
 import Loader from './Loader'
 
-export default class BloodPressureTable extends Component {
+import BloodPressureItem from './BloodPressureItem'
+
+export default class BloodPressure extends Component {
 
   constructor(props) {
     super(props)
   }
 
   componentDidMount() {
-    this.props.actions.bp_read()
+    this.props.actions.bpRead()
+
+    const query = new Parse.Query('BloodPressure')
+    const subscription = query.subscribe()
+    subscription.on('create', (item) => { this.props.actions.bpRead() });
+    subscription.on('delete', (item) => { this.props.actions.bpRead() });
+    subscription.on('update', (item) => { this.props.actions.bpRead() });
   }
 
   render() {
@@ -21,7 +30,7 @@ export default class BloodPressureTable extends Component {
 
     else {
       renderBP = (
-        <div className="bloodpressure-table">
+        <div className="bloodpressure-main">
 
 
           <table className="ui large  table inverted red">
@@ -33,18 +42,9 @@ export default class BloodPressureTable extends Component {
               </tr>
             </thead>
             <tbody>
+
               { this.props.data.map(data => {
-                const bp_id = data.id
-                return (
-                  <tr key={bp_id}>
-                    <td className="collapsing">
-                      <b>28.3</b>
-                    </td>
-                    <td className="center aligned">{data.get('diastolic')} <i className=" green checkmark icon"></i></td>
-                    <td className="center aligned">{data.get('systolic')} <i className=" green checkmark icon"></i></td>
-                    {/* <td className="center aligned">{data.get('systolic')} <i className=" black remove icon"></i></td> */}
-                  </tr>
-                )
+                return <BloodPressureItem dispatch={this.props.dispatch} key={data.id} data={data} actions={this.props.actions} />
               })}
 
             </tbody>

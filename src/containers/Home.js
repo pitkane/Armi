@@ -10,12 +10,12 @@ import * as NotesActions from '../actions/NotesActions'
 import * as FormsActions from '../actions/FormsActions'
 
 import Loader from '../components/Loader'
+
+import Journal from '../components/Journal'
 import BloodSugar from '../components/BloodSugar'
 import Notes from '../components/Notes'
-import Journal from '../components/Journal'
 import LiveTime from '../components/LiveTime'
-import BloodPressureTable from '../components/BloodPressureTable'
-import BloodSugarTable from '../components/BloodSugarTable'
+import BloodPressure from '../components/BloodPressure'
 
 import Forms from '../components/Forms'
 
@@ -73,8 +73,8 @@ class Home extends Component {
               <div className="eight wide column" style={{ paddingRight: 0 }}>
                 <div className="tile bloodpressure-tile red">
 
-                  <BloodPressureTable
-
+                  <BloodPressure
+                    dispatch={this.props.dispatch}
                     actions={this.props.bloodpressure_actions}
                     data={this.props.bloodpressure.data}
                     isLoading={this.props.bloodpressure.isLoading}
@@ -85,7 +85,12 @@ class Home extends Component {
 
               <div className="eight wide column" style={{ paddingLeft: 0 }}>
                 <div className="tile bloodsugar-tile orange">
-                  <BloodSugarTable />
+                  <BloodSugar
+                    data={this.props.bloodsugar.data}
+                    dispatch={this.props.dispatch}
+                    actions={this.props.bloodsugar_actions}
+                    isLoading={this.props.bloodsugar.isLoading}
+                  />
                 </div>
               </div>
 
@@ -94,6 +99,7 @@ class Home extends Component {
             <div className="tile notes-tile yellow">
               <Notes
                 data={this.props.notes.data}
+                dispatch={this.props.dispatch}
                 actions={this.props.notes_actions}
                 isLoading={this.props.notes.isLoading}
               />

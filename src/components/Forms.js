@@ -28,19 +28,44 @@ export default class Journal extends Component {
     if (this.props.state.displayForm === true) {
       switch (this.props.state.form) {
         case 'journal':
-          renderForm = (<JournalForm editing={this.props.state.editing} editObject={this.props.state.editObject} actions={this.props.journal_actions} closeForm={ () => this.props.forms_actions.closeForm() }/>)
+          renderForm = (
+            <JournalForm
+              editing={this.props.state.editing}
+              editObject={this.props.state.editObject}
+              actions={this.props.journal_actions}
+              closeForm={ () => this.props.forms_actions.closeForm() }
+            />
+          )
           break
 
         case 'notes':
-          renderForm = (<NotesForm editing={this.props.state.editing} editObject={this.props.state.editObject} actions={this.props.notes_actions} closeForm={ () => this.props.forms_actions.closeForm() }/>)
+          renderForm = (
+            <NotesForm
+              editing={this.props.state.editing}
+              editObject={this.props.state.editObject}
+              actions={this.props.notes_actions}
+              closeForm={ () => this.props.forms_actions.closeForm() }/>
+          )
           break
 
         case 'bloodpressure':
-          renderForm = (<BloodPressureForm editing={this.props.state.editing} editObject={this.props.state.editObject} actions={this.props.bloodpressure_actions} closeForm={ () => this.props.forms_actions.closeForm() }/>)
+          renderForm = (
+            <BloodPressureForm
+              editing={this.props.state.editing}
+              editObject={this.props.state.editObject}
+              actions={this.props.bloodpressure_actions}
+              closeForm={ () => this.props.forms_actions.closeForm() }/>
+            )
           break
 
         case 'bloodsugar':
-          renderForm = (<BloodSugarForm editing={this.props.state.editing} editObject={this.props.state.editObject} actions={this.props.bloodsugar_actions} closeForm={ () => this.props.forms_actions.closeForm() }/>)
+          renderForm = (
+            <BloodSugarForm
+              editing={this.props.state.editing}
+              editObject={this.props.state.editObject}
+              actions={this.props.bloodsugar_actions}
+              closeForm={ () => this.props.forms_actions.closeForm() }/>
+            )
           break
 
         default:

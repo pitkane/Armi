@@ -11,16 +11,15 @@ export default class BloodPressureForm extends Component {
   componentDidMount() {
   }
 
-  bloodPressure(event) {
-    console.log(this.props)
+  _addBPEntry(event) {
     event.preventDefault()
-    const self = this
     const result = this.props.actions.bp_create(
       event.target.diastolic.value,
       event.target.systolic.value
     )
       .then((success) => {
-        console.log('woopwoop')
+        console.log('Bloodpressure entry added')
+        this.props.closeForm()
       }, (error) => {
         console.log('Something went wrong, dont clear', error)
       })
@@ -32,7 +31,7 @@ export default class BloodPressureForm extends Component {
       return (
         <div className="ui grid" style={{ paddingBottom: '20px' }}>
           <div className="ui sixteen wide container">
-            <form className="ui form bloodpressure-form" onSubmit={(event) => this.bloodPressure(event)}>
+            <form className="ui form bloodpressure-form" onSubmit={(event) => this._addBPEntry(event)}>
               <div className="fields">
                 <div className="eight wide field">
                   <label>Alapaine</label>

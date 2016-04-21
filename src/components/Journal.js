@@ -18,16 +18,9 @@ export default class Journal extends Component {
 
     const query = new Parse.Query('Journal')
     const subscription = query.subscribe()
-    subscription.on('create', (item) => {
-      // console.log(item.get('body'));
-      console.log('dispatch refresh for journal')
-      this.props.actions.journal_read()
-    });
-    subscription.on('delete', (item) => {
-      // console.log(item.get('body'));
-      console.log('dispatch refresh for journal')
-      this.props.actions.journal_read()
-    });
+    subscription.on('create', (item) => { this.props.actions.journal_read() });
+    subscription.on('delete', (item) => { this.props.actions.journal_read() });
+    subscription.on('update', (item) => { this.props.actions.journal_read() });
   }
 
   render() {

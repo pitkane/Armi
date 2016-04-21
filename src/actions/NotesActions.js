@@ -46,7 +46,7 @@ export function notes_read() {
   }
 }
 
-export function notes_create(body, username = 'anynomous', critical = false) {
+export function notesCreate(body, username = 'anynomous', critical = false) {
   return (dispatch) => {
     dispatch(notesRequestData())
     const NotesObject = Parse.Object.extend('Notes')
@@ -93,6 +93,20 @@ export function notes_delete(notes_id) {
   }
 }
 
-export function notes_update(notes_id, new_body) {
+export function notesUpdate(object, newBody = 'empty', newCritical = false) {
+  return (dispatch) => {
+    dispatch(notesRequestData())
 
+    object.set('body', newBody)
+    object.set('critical', newCritical)
+
+    return object.save(null, {
+      success: (post) => {
+        dispatch(notes_read())
+      },
+      error: (item, error) => {
+        console.log(item, error)
+      }
+    })
+  }
 }

@@ -17,34 +17,61 @@ export default class NotesForm extends Component {
   }
 
   addNote(event) {
-    console.log(this.props)
     event.preventDefault()
-    const self = this
-    const result = this.props.actions.notes_create(
-      event.target.body.value,
-      'anonymous',
-      // event.target.username.value,
-      event.target.critical.checked
-    )
-      .then((success) => {
-        console.log('woopwoop')
-      }, (error) => {
-        console.log('Something went wrong, dont clear', error)
-      })
+
+    if (this.props.editing) {
+      console.log(this)
+      this.props.actions.notesUpdate(
+        this.props.editObject,
+        event.target.body.value,
+        event.target.critical.checked
+      )
+        .then((success) => {
+          console.log('Note updated succesfully')
+          this.props.closeForm()
+        }, (error) => {
+          console.log('Something went wrong, dont clear', error)
+        })
+    } else {
+      this.props.actions.notesCreate(
+        event.target.body.value,
+        'anonymous',
+        event.target.critical.checked
+      )
+        .then((success) => {
+          console.log('Note added succesfully')
+          this.props.closeForm()
+        }, (error) => {
+          console.log('Something went wrong, dont clear', error)
+        })
+    }
   }
 
   render() {
     return (
-      <form className="notes-form" onSubmit={(event) => this.addNote(event)}>
-        <input type="text" name="body" />
-        {/* <input type="text" name="username" /> */}
-        <div className="ui checkbox">
-          <input name="critical" type="checkbox" />
-          <label>Label</label>
+      <div className="ui grid" style={{ paddingBottom: '20px' }}>
+        <div className="ui sixteen wide container">
+          <form className="ui form notes-form" onSubmit={(event) => this.addNote(event)}>
+
+            <div className="field">
+              <div className="sixteen wide field">
+                <label>Muistiinpano:</label>
+                <input type="text" name="body" defaultValue={this.props.editing ? this.props.editObject.get('body') : ''} />
+              </div>
+            </div>
+            <div className="field">
+              <div className="sixteen wide field">
+                <div className="ui checkbox">
+                  <input name="critical" type="checkbox" />
+                  <label>Onko merkintä tärkeä?</label>
+                </div>
+              </div>
+            </div>
+            <input type="submit" className="ui primary button right floated" value={this.props.editing ? 'Päivitä muistiinpano' : 'Lisää muistiinpano' } />
+            <button type="button" className="ui button right floated" onClick={ this.props.closeForm }>Hylkää</button>
+          </form>
         </div>
-        <input type="submit" value="Add" />
-        <button type="button" className="ui button right floated" onClick={ this.props.closeForm }>Hylkää</button>
-      </form>
+      </div>
     )
   }
 }

@@ -28,14 +28,14 @@ function bpReceiveError(json) {
 }
 
 
-export function bp_read() {
+export function bpRead() {
   return function (dispatch) {
     dispatch(bpRequestData())
 
     const BloodPressureObject = Parse.Object.extend('BloodPressure')
     const query = new Parse.Query(BloodPressureObject)
 
-    return query.find({
+    return query.descending('createdAt').find({
       success: (results) => {
         return setTimeout(() => {
           dispatch(bpReceiveData(results))
@@ -58,7 +58,7 @@ export function bp_create(diastolic = 0, systolic = 0) {
     return newBP.save(null, {
       success: (bp) => {
         // We can dispatch something here if needed
-        dispatch(bp_read())
+        dispatch(bpRead())
       },
       error: (bp, error) => {
         console.log(bp, error)
@@ -68,18 +68,18 @@ export function bp_create(diastolic = 0, systolic = 0) {
   }
 }
 
-export function bp_delete(bs_id) {
+export function bpDelete(id) {
   return function (dispatch) {
     dispatch(bpRequestData())
 
-    const BloodSugarObject = Parse.Object.extend('BloodSugar');
+    const BloodSugarObject = Parse.Object.extend('BloodPressure');
     const query = new Parse.Query(BloodSugarObject);
     // debugger
-    return query.get(bs_id)
+    return query.get(id)
       .then((bs) => {
         return bs.destroy({
           success: function (removed_bs) {
-            dispatch(bp_read());
+            dispatch(bpRead());
           },
           error: function (removed_bs, error) {
           }
@@ -93,6 +93,6 @@ export function bp_delete(bs_id) {
   }
 }
 
-export function bp_update(bloodsugar_id, new_body) {
+export function bpUpdate(id, new_body) {
 
 }
