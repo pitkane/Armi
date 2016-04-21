@@ -5,6 +5,7 @@
 Todo: insert about section here. Redux and promise based async actions to Parse etc etc...
 
 - TODO: building semantic, kinda sucks...
+- 
 
 ## Dev Server
 
