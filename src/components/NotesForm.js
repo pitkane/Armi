@@ -22,7 +22,8 @@ export default class NotesForm extends Component {
     const self = this
     const result = this.props.actions.notes_create(
       event.target.body.value,
-      event.target.username.value,
+      'anonymous',
+      // event.target.username.value,
       event.target.critical.checked
     )
       .then((success) => {
@@ -36,7 +37,7 @@ export default class NotesForm extends Component {
     return (
       <form className="notes-form" onSubmit={(event) => this.addNote(event)}>
         <input type="text" name="body" />
-        <input type="text" name="username" />
+        {/* <input type="text" name="username" /> */}
         <div className="ui checkbox">
           <input name="critical" type="checkbox" />
           <label>Label</label>
