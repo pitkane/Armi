@@ -1,4 +1,3 @@
-import Axios from 'axios'
 import Parse from 'parse'
 import _ from 'lodash'
 

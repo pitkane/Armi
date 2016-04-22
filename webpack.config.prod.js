@@ -39,12 +39,17 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
+        exclude: [/node_modules/, /styles/, /lib/, /shit/],
         loaders: ['babel'],
         include: path.join(__dirname, 'src')
       },
       {
         test: /\.scss$/,
         loader: 'style!css!sass'
+      },
+      {
+        test: /.(png|woff(2)?|eot|ttf|svg)(\?[a-z0-9=\.]+)?$/,
+        loader: 'url-loader?limit=100000'
       }
     ]
   }

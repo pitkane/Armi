@@ -1,6 +1,4 @@
-import Axios from 'axios'
 import Parse from 'parse'
-import _ from 'lodash'
 
 import {
   BP_REQUEST_DATA,
@@ -51,7 +49,6 @@ export function bp_create(diastolic = 0, systolic = 0) {
     dispatch(bpRequestData())
     const BloodPressureObject = Parse.Object.extend('BloodPressure')
     const newBP = new BloodPressureObject
-    // newBP.set('value', _.round(_.toNumber(value.replace(',', '.')), 2))
     newBP.set('diastolic', diastolic)
     newBP.set('systolic', systolic)
     newBP.set('creationDate', new Date())

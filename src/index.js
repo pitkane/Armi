@@ -6,7 +6,8 @@ import ReactDOM from 'react-dom';
  * the main SCSS file we have in the styles directory.
  */
 import './styles/main.scss';
-import '../lib/semantic/dist/semantic.js'
+import '../lib/semantic/dist/semantic.min.js'
+// import '../lib/semantic/dist/semantic.min.css'
 
 /**
  * Both configureStore and Root are required conditionally.
