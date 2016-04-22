@@ -10,6 +10,8 @@ $base-size: 300px;
   background-size: cover;
   // color: #fff;
   min-height: 253px;
+  display: flex;
+  flex-direction: column;
 
   h1 {
     font-size: 1.7rem;

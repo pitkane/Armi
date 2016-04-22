@@ -1,4 +1,9 @@
 
+.livetime-tile {
+  justify-content: center;
+  align-items: center;
+}
+
 .livetime-main {
 
   color: #fff;
@@ -19,7 +24,7 @@
   }
 
   .date {
-    font-size: 4.5rem;
+    font-size: 4rem; // 4.5rem
     font-weight: 400;
     opacity: 0.7;
     // margin-bottom: auto;

@@ -39,9 +39,7 @@ class Home extends Component {
           <div className="eight wide column leftside">
 
             <div className="tile journal-tile teal">
-              <div className="header-big">
-                Päivyri
-              </div>
+              
 
               <Forms
                 state={this.props.forms}

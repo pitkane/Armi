@@ -80,22 +80,22 @@ export default class Journal extends Component {
       renderButtons = (
         <div className="journal-buttons">
 
-          <button className="big ui labeled icon primary button" onClick={() => this.props.forms_actions.changeForm('journal')}>
+          <button className="large ui labeled icon primary button" onClick={() => this.props.forms_actions.changeForm('journal')}>
             <i className="calendar icon"></i>
             Päivyrimerkintä
           </button>
 
-          <button className="big ui labeled icon red button" onClick={() => this.props.forms_actions.changeForm('bloodpressure')}>
+          <button className="large ui labeled icon red button" onClick={() => this.props.forms_actions.changeForm('bloodpressure')}>
             <i className="heart icon"></i>
             Verenpaine
           </button>
 
-          <button className="big ui orange button" onClick={() => this.props.forms_actions.changeForm('bloodsugar')}>
+          <button className="large ui orange button" onClick={() => this.props.forms_actions.changeForm('bloodsugar')}>
             <i className="treatment icon"></i>
             Verensokeri
           </button>
 
-          <button className="big ui labeled icon yellow button" onClick={() => this.props.forms_actions.changeForm('notes')}>
+          <button className="large ui labeled icon yellow button" onClick={() => this.props.forms_actions.changeForm('notes')}>
             <i className="write icon"></i>
             Muistiinpano
           </button>
@@ -108,6 +108,10 @@ export default class Journal extends Component {
     return (
 
       <div className="forms-main">
+
+        <div className="header-big">
+          Päivyri
+        </div>
 
         { renderButtons }
 

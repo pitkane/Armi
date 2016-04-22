@@ -1,4 +1,7 @@
 
+.leftside {
+  // height: 100vh;
+}
 
 .app-main {
   margin-bottom: 10px;
@@ -16,6 +19,8 @@
 }
 
 .journal-tile {
+  // display: flex;
+  // flex-direction: column;
   height: 100vh;
   overflow-y: scroll;
 }
