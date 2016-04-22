@@ -1,13 +1,13 @@
 # Armi - Dashboard
 
-![Armi - Dashboard](https://drive.google.com/uc?export=download&id=0BwWdduICTQArbDlwNVd0aW9Rd2c)
+![Armi - Dashboard](https://drive.google.com/uc?export=download&id=0BwWdduICTQArOVJwRjE0ZFFHNk0)
 
 Short presentation: [MP4 1080p [1:10]](https://drive.google.com/file/d/0BwWdduICTQArMGxWM3BkSklUaU0/view?usp=sharing)
 
 Todo: insert about section here. Redux and promise based async actions to Parse etc etc...Write them before you forget ;)
 
 - TODO: building semantic, kinda sucks...
--
+- zero webpack optimization, bundle is huuuuge :D  
 
 ## Dev Server
 
